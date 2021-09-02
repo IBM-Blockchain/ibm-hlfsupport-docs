@@ -1,0 +1,33 @@
+#*******************************************************************************
+# IBM Confidential
+# OCO Source Materials
+# 5737-J29, 5737-B18
+# (C) Copyright IBM Corp. 2020 All Rights Reserved.
+# The source code for this program is not  published or otherwise divested of
+# its trade secrets, irrespective of what has been deposited with
+# the U.S. Copyright Office.
+#*******************************************************************************
+
+apiVersion: ibp.com/v1beta1
+kind: IBPConsole
+metadata:
+  name: ibpconsole
+spec:
+  arch:
+  - amd64
+  license:
+    accept: false
+  serviceAccountName: default
+  email: "<EMAIL>"
+  password: "<PASSWORD>"
+  registryURL: cp.icr.io/cp
+  imagePullSecrets:
+    - docker-key-secret
+  networkinfo:
+    domain: <DOMAIN>
+  storage:
+    console:
+      class: default
+      size: 10Gi
+  tlsSecretName: "<CONSOLE_TLS_SECRET_NAME>"
+  

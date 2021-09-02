@@ -1,0 +1,28 @@
+#*******************************************************************************
+# IBM Confidential
+# OCO Source Materials
+# 5737-J29, 5737-B18
+# (C) Copyright IBM Corp. 2020 All Rights Reserved.
+# The source code for this program is not  published or otherwise divested of
+# its trade secrets, irrespective of what has been deposited with
+# the U.S. Copyright Office.
+#*******************************************************************************
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: "ibm-hlfsupport-webhook"
+  labels:
+    type: "webhook"
+    app.kubernetes.io/name: "ibm-hlfsupport"
+    app.kubernetes.io/instance: "ibm-hlfsupport-webhook"
+    helm.sh/chart: "ibm-hlfsupport"
+spec:
+  type: ClusterIP
+  ports:
+    - name: server
+      port: 443
+      targetPort: server
+      protocol: TCP
+  selector:
+    app.kubernetes.io/instance: "ibm-hlfsupport-webhook"

@@ -1,0 +1,40 @@
+#*******************************************************************************
+# IBM Confidential
+# OCO Source Materials
+# 5737-J29, 5737-B18
+# (C) Copyright IBM Corp. 2020 All Rights Reserved.
+# The source code for this program is not  published or otherwise divested of
+# its trade secrets, irrespective of what has been deposited with
+# the U.S. Copyright Office.
+#*******************************************************************************
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: webhook
+  namespace: ibpinfra
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: webhook
+rules:
+- apiGroups:
+  - "*"
+  resources:
+  - secrets
+  verbs:
+  - "*"
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: ibpinfra
+subjects:
+- kind: ServiceAccount
+  name: webhook
+  namespace: ibpinfra
+roleRef:
+  kind: Role
+  name: webhook
+  apiGroup: rbac.authorization.k8s.io
