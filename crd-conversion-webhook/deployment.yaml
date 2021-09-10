@@ -17,7 +17,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "ibp-webhook"
+  name: "ibm-hlfsupport-webhook"
   labels:
     helm.sh/chart: "ibm-hlfsupport"
     app.kubernetes.io/name: "ibm-hlfsupport"
@@ -44,7 +44,7 @@ spec:
     spec:
       serviceAccountName: webhook
       imagePullSecrets:
-        - name: docker-key-secret
+        - name: cp-pull-secret
       hostIPC: false
       hostNetwork: false
       hostPID: false
@@ -53,7 +53,7 @@ spec:
         runAsUser: 1000
         fsGroup: 2000
       containers:
-        - name: "ibp-webhook"
+        - name: "ibm-hlfsupport-webhook"
           image: "cp.icr.io/cp/ibm-hlfsupport-crdwebhook:1.0.0-20210915-amd64"
           imagePullPolicy: Always
           securityContext:

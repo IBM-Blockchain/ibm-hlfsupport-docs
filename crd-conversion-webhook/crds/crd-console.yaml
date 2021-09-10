@@ -29,8 +29,8 @@ spec:
       conversionReviewVersions: ["v1beta1", "v1alpha2", "v1alpha1"]
       clientConfig:
         service:
-          namespace: ibpinfra
-          name: ibp-webhook
+          namespace: ibm-hlfsupport-infra
+          name: ibm-hlfsupport-webhook
           path: /crdconvert
         caBundle: "${TLS_CERT}"
   group: ibp.com

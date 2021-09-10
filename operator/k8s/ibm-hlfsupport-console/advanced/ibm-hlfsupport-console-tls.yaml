@@ -17,7 +17,7 @@
 apiVersion: ibp.com/v1beta1
 kind: IBPConsole
 metadata:
-  name: ibpconsole
+  name: ibm-hlfsupport-console
 spec:
   arch:
   - amd64
@@ -28,7 +28,7 @@ spec:
   password: "<PASSWORD>"
   registryURL: cp.icr.io/cp
   imagePullSecrets:
-    - docker-key-secret
+    - cp-pull-secret
   networkinfo:
     domain: <DOMAIN>
   storage:
@@ -36,4 +36,3 @@ spec:
       class: default
       size: 10Gi
   tlsSecretName: "<CONSOLE_TLS_SECRET_NAME>"
-  

@@ -65,7 +65,7 @@ spec:
         runAsUser: 1001
         fsGroup: 2000
       imagePullSecrets:
-        - name: docker-key-secret
+        - name: cp-pull-secret
       containers:
         - name: ibm-hlfsupport-operator
           image: cp.icr.io/cp/ibm-hlfsupport-operator:1.0.0-20210915-amd64
