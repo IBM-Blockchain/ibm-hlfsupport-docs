@@ -54,7 +54,7 @@ spec:
         fsGroup: 2000
       containers:
         - name: "ibm-hlfsupport-webhook"
-          image: "cp.icr.io/cp/ibm-hlfsupport-crdwebhook:1.0.0-20221207-amd64"
+          image: "icr.io/cpopen/ibm-hlfsupport-crdwebhook:1.0.4-20230104-amd64"
           imagePullPolicy: Always
           securityContext:
             privileged: false
